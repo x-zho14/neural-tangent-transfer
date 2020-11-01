@@ -302,7 +302,7 @@ def read_svhn_data(path_dataset, STANDARDIZE_BOOL = True):
     return dataset
 
 class Dataset(object):
-    def __init__(self, datasource, path_data = '/tungstenfs/scratch/gzenke/liutian/myData/', STANDARDIZE_BOOL  = True,  VALIDATION_FRACTION = 0.1, LOAD_TRAIN_PORTION = 1.0, **kwargs):
+    def __init__(self, datasource, path_data = '../data/', STANDARDIZE_BOOL  = True,  VALIDATION_FRACTION = 0.1, LOAD_TRAIN_PORTION = 1.0, **kwargs):
         self.datasource = datasource
         self.path_data = path_data
         self.rand = onp.random.RandomState(9)
@@ -314,9 +314,9 @@ class Dataset(object):
         
         if self.datasource == 'mnist':
             self.num_classes = 10
-            self.dataset = read_mnist_data(os.path.join(self.path_data, 'mnist_dataset'), STANDARDIZE_BOOL = STANDARDIZE_BOOL, LOAD_TRAIN_PORTION = LOAD_TRAIN_PORTION)
+            self.dataset = read_mnist_data(os.path.join(self.path_data, 'mnist'), STANDARDIZE_BOOL = STANDARDIZE_BOOL, LOAD_TRAIN_PORTION = LOAD_TRAIN_PORTION)
         elif self.datasource == 'mnist-2':
-            orig_dataset = read_mnist_data(os.path.join(self.path_data, 'mnist_dataset'), STANDARDIZE_BOOL = STANDARDIZE_BOOL, LOAD_TRAIN_PORTION = 1.0 )
+            orig_dataset = read_mnist_data(os.path.join(self.path_data, 'mnist'), STANDARDIZE_BOOL = STANDARDIZE_BOOL, LOAD_TRAIN_PORTION = 1.0 )
             self.dataset = construct_bin_dataset(orig_dataset)
         elif self.datasource == 'fashion_mnist':
             self.num_classes = 10

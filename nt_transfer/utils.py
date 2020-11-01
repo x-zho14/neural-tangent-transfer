@@ -255,7 +255,7 @@ def stax_params_l2_square(params, mask = None, regularize_bias_bool = False):
         # remove the empty tuple from the list of paramters.
         list_params = list(sum(params, ()))     
     
-    params_norm_squared = np.sum([ np.sum(np.square( list_params[i] ))  for i in range(len(list_params)) ]  )
+    params_norm_squared = np.sum(np.array([ np.sum(np.square( list_params[i] ))  for i in range(len(list_params)) ])  )
             
     return params_norm_squared
     

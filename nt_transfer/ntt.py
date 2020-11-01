@@ -271,8 +271,8 @@ class nt_transfer_model():
 
             trans_model_dir = self.unique_model_dir
 
-#             while os.path.exists(trans_model_dir):
-#                 trans_model_dir = trans_model_dir + '_0'
+            while os.path.exists(trans_model_dir):
+                trans_model_dir = trans_model_dir + '_0'
             
             os.makedirs(trans_model_dir)
 
